@@ -17,7 +17,6 @@ const search = () => {
 
 const loadData = (inputValue) => {
     result.textContent = ''
-
     gif.style.display = 'block';
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputValue}`
     fetch(url)
