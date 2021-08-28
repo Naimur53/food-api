@@ -25,11 +25,14 @@ const loadData = (inputValue) => {
 }
 const inputData = data => {
     gif.style.display = 'none';
-    searchInput.value = '';
     if (data.meals == null) {
-        alert(`We could not find any food match with this"${searchInput.value}" name `)
+        alert(`We could not find any food match with this "${searchInput.value}" name `);
+        searchInput.value = '';
+
     }
     else {
+        searchInput.value = '';
+
         data.meals.forEach(meal => {
             console.log(meal);
             //new element 
