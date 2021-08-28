@@ -4,6 +4,7 @@ const result = document.getElementById('result');
 const seeMore = document.getElementById('seeMore');
 const gif = document.getElementById('gif');
 
+//search value 
 const search = () => {
     const searchValue = searchInput.value;
     if (searchValue.length == 0) {
@@ -14,7 +15,7 @@ const search = () => {
         console.log(searchValue);
     }
 }
-
+//loading data of search
 const loadData = (inputValue) => {
     result.textContent = ''
     gif.style.display = 'block';
@@ -23,6 +24,7 @@ const loadData = (inputValue) => {
         .then(res => res.json())
         .then(data => inputData(data));
 }
+// insert data to html 
 const inputData = data => {
     gif.style.display = 'none';
     if (data.meals == null) {
@@ -61,6 +63,7 @@ const inputData = data => {
     }
 
 }
+//on click of try this 
 const more = idMeal => {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`;
     fetch(url)
@@ -68,6 +71,7 @@ const more = idMeal => {
         .then(data => details(data));
 
 }
+// insert data to see more section 
 const details = data => {
     data.meals.forEach(detail => {
         const div = document.createElement('div');
@@ -90,6 +94,5 @@ const details = data => {
         </div> 
         `;
         seeMore.appendChild(div);
-
     })
 }
